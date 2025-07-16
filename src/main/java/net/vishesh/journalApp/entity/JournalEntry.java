@@ -1,27 +1,24 @@
 package net.vishesh.journalApp.entity;
 
-import java.util.Date;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+
+import java.time.LocalDateTime;
 
 
 public class JournalEntry {
-    private String id;
+
+    @Id
+    private ObjectId id;
     private String title;
     private String content;
-    private Date date;
+    private LocalDateTime date;
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
@@ -39,5 +36,13 @@ public class JournalEntry {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime now) {
+        this.date = now;
     }
 }
